@@ -7,7 +7,7 @@ const pino = require('pino');
 const fs = require("fs");
 const axios = require('axios');
 const cheerio = require('cheerio');
-const { getMatchDetailsAndMessages, startIntervalLogging } = require('./cricketMatchUpdater');
+const { getMatchDetailsAndMessages, startIntervalLogging, stopIntervalLogging } = require('./cricketMatchUpdater');
 
 const prefix = ".";
 let previousWicketCount = null;
