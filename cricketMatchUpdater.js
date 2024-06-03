@@ -76,7 +76,7 @@ const getImportantMessage = (matchDetails) => {
 
     const currentWicketCount = extractWicketCount(matchDetails.teamScores[matchDetails.battingTeam]);
     const currentTime = Date.now();
-    const oneMinute = 1 * 60 * 1000;
+    const oneMinute = 5 * 60 * 1000;
 
     if (previousMatchDetails) {
         if (currentWicketCount !== null && previousWicketCount !== null && currentWicketCount > previousWicketCount) {
