@@ -85,6 +85,12 @@ async function connectToWhatsApp() {
                                         try {
                                             const { formattedMessage, importantMessage } = await getMatchDetailsAndMessages(url);
                             
+                                            if (importantMessage === null){
+                                                stopIntervalLogging(); // Stop the interval logging
+                                                sock.sendMessage(grpwid, {text: "❌ *MATCH HAS NOT BEEN STARTED YET* ❌"});
+                                                return;
+                                            }
+
                                             if (formattedMessage) {
                                                 sock.sendMessage(grpwid, { text: formattedMessage });
                                             }
@@ -165,6 +171,12 @@ async function connectToWhatsApp() {
                                         try {
                                             const { formattedMessage, importantMessage } = await getMatchDetailsAndMessages(url);
                             
+                                            if (importantMessage === null){
+                                                stopIntervalLogging(); // Stop the interval logging
+                                                sock.sendMessage(grpwid, {text: "❌ *MATCH HAS NOT BEEN STARTED YET* ❌"});
+                                                return;
+                                            }
+
                                             if (formattedMessage) {
                                                 sock.sendMessage(grpwid, { text: formattedMessage });
                                             }
