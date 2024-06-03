@@ -35,7 +35,7 @@ const getMatchDetails = async (url) => {
         const matchIsStarted = Object.values(teamScores).every(score => score === '') ? false : true;
 
         // Determine if the match has ended
-        const matchIsEnd = matchIsStarted && matchStatus.toLowerCase().includes('won by');
+        const matchIsEnd = matchIsStarted && matchStatus.toLowerCase().includes('won');
 
         // Determine if the match hold on break
         const matchInBreak = matchIsStarted && matchStatus.toLowerCase().includes('break');
