@@ -19,7 +19,7 @@ const matchCountryToEmoji = (countryName) => {
     const countryEmojis = {
         Australia: '🇦🇺',
         Bangladesh: '🇧🇩',
-        England: '🏴',
+        England: '🏴󠁧󠁢󠁥󠁮󠁧󠁿',
         India: '🇮🇳',
         'New Zealand': '🇳🇿',
         Pakistan: '🇵🇰',
@@ -29,7 +29,7 @@ const matchCountryToEmoji = (countryName) => {
         Afghanistan: '🇦🇫',
         Ireland: '🇮🇪',
         Zimbabwe: '🇿🇼',
-        Scotland: '🏴',
+        Scotland: '🏴󠁧󠁢󠁳󠁣󠁴󠁿',
         Netherlands: '🇳🇱',
         UAE: '🇦🇪',
         Nepal: '🇳🇵',
@@ -37,7 +37,7 @@ const matchCountryToEmoji = (countryName) => {
         'Papua New Guinea': '🇵🇬',
         Canada: '🇨🇦',
         Kenya: '🇰🇪',
-        Namibia: '🇳🇦'
+        Namibia: '🇳🇦',
     };
     return countryEmojis[countryName] || '🏏'; // Default emoji if country name not found
 };
