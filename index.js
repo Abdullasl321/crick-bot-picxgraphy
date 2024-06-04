@@ -37,9 +37,9 @@ async function connectToWhatsApp() {
     setInterval(() => {
       sock.sendPresenceUpdate("unavailable");
     }, 10000);
-  }
+
      // connection opened
-        }
+    }
 
         if (connection === 'close' && lastDisconnect && lastDisconnect.error && lastDisconnect.error.output.statusCode != "undefined") {
             // connection closed, reconnecting setup...
