@@ -31,8 +31,14 @@ async function connectToWhatsApp() {
         const { connection, lastDisconnect, qr } = update;
         
         if (connection === 'open') {
-            sock.sendPresenceUpdate("unavailable");
-            // connection opened
+       sock.sendPresenceUpdate("unavailable");
+    
+    // Loop every 10 seconds (consider using setInterval instead for better control)
+    setInterval(() => {
+      sock.sendPresenceUpdate("unavailable");
+    }, 10000);
+  }
+     // connection opened
         }
 
         if (connection === 'close' && lastDisconnect && lastDisconnect.error && lastDisconnect.error.output.statusCode != "undefined") {
