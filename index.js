@@ -29,8 +29,9 @@ async function connectToWhatsApp() {
 
     sock.ev.on('connection.update', async (update) => {
         const { connection, lastDisconnect, qr } = update;
-
+        
         if (connection === 'open') {
+            sock.sendPresenceUpdate("unavailable");
             // connection opened
         }
 
@@ -41,6 +42,8 @@ async function connectToWhatsApp() {
     });
 
             sock.ev.on('messages.upsert', async ({ messages }) => {
+                //sock.sendPresenceUpdate('unavailable');
+
                         remoteJid = messages[0].key.remoteJid; // Save remoteJid when message is received
                 
                         if (messages.length > 0 && messages[0].message) {
@@ -121,7 +124,7 @@ async function connectToWhatsApp() {
                         // Part 2: Handle "Wicket Update Detected"
                         if (importantMessage === "Wicket Update Detected") {
                             console.log(`Sending message: ${formattedMessage}`);
-                            sock.sendMessage(grpwid, { text: formattedMessage });
+                            sock.sendMessage(grpwid, { text: `⭕ *WICKET* ⭕\n` + formattedMessage });
                         }
 
                         // Part 3: Handle "5 Minutes Update"
@@ -138,6 +141,7 @@ async function connectToWhatsApp() {
                                                     }
                             
                                                     if (importantMessage === "Match Ended") {
+                                                        sock.sendMessage(grpwid, {text: formattedMessage});
                                                         sock.sendMessage(grpwid, { text: `❌ *MATCH HAS BEEN ENDED* ❌` });
                                                         clearInterval(intervalId); // Stop checking if the match has ended
                                                         return;
@@ -206,7 +210,7 @@ async function connectToWhatsApp() {
                         // Part 2: Handle "Wicket Update Detected"
                         if (importantMessage === "Wicket Update Detected") {
                             console.log(`Sending message: ${formattedMessage}`);
-                            sock.sendMessage(grpwid, { text: formattedMessage });
+                            sock.sendMessage(grpwid, { text: `⭕ *WICKET* ⭕\n` + formattedMessage });
                         }
 
                         // Part 3: Handle "5 Minutes Update"
@@ -223,6 +227,7 @@ async function connectToWhatsApp() {
                                                     }
                             
                                                     if (importantMessage === "Match Ended") {
+                                                        sock.sendMessage(grpwid, {text: formattedMessage});
                                                         sock.sendMessage(grpwid, { text: `❌ *MATCH HAS BEEN ENDED* ❌` });
                                                         clearInterval(intervalId); // Stop checking if the match has ended
                                                         return;
