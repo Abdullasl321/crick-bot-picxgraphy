@@ -103,13 +103,15 @@ async function connectToWhatsApp() {
 
                     } else if (grpmsg.startsWith(prefix + "cricket")) {
 
-                        const command = messageContent.split(" ")[1]; // Extract command from message
-
+                        const command = grpmsg.split(" ")[1]; // Extract command from message
+                    
 if (command === "stop") {
 stopIntervalLogging(); // Stop the interval logging
 sock.sendMessage(remoteJid, { text: '❌ *LIVE UPDATES STOPPED.* ❌' });
 return;
 }
+
+
 
                         const url = grpmsg.split(" ")[1]; // Extract URL from message
                         const grpwid = grpmsg.split(" ")[2] // Extract grpwid from message
